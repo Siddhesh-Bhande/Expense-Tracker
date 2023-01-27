@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Expenditure Tracker</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ 
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="body-container">
+            <div class="main-title"><h1>Dashboard</h1></div>
+            <div class="accounts-container">
+                <h2>Accounts</h2>
+                <div class="account">
+                    <div class="account-name">
+                        Bank Account
+                    </div>
+                    <div class="account-amount">
+                        5000
+                    </div>
+                </div>
+                <div class="account">
+                    <div class="account-name">
+                        FOREX
+                    </div>
+                    <div class="account-amount">
+                        948
+                    </div>
+                </div>
+                <div class="account">
+                    <div class="account-name">
+                        Cash
+                    </div>
+                    <div class="account-amount">
+                        336
+                    </div>
+                </div>
+                <div class="account">
+                    <div class="account-name">
+                        Money Lent
+                    </div>
+                    <div class="account-amount">
+                        393
+                    </div>
+                </div>
+            </div>
+            <div class="expense-container">
+                <h2>Expenses</h2>
+                <div class="total">
+                    <div class="expenses">
+                        Total Expenses: <span class="total-expense-amound">1500</span>
+                    </div>
+                </div>
+                <div class="expense">
+                    <div class="expense-name">
+                        Grocery
+                    </div>
+                    <div class="expense-amount">
+                        100
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary addExpense" data-toggle="modal" data-target="#exampleModalCenter">
+                    +
+                  </button>
+            </div>
+        </div>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Add new expense</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <div class="expense">
+                        <div class="expense-name">
+                            Expense type
+                            <input name="expense_name_input" type="text" class="expense_input">
+                        </div>
+                        <div class="expense-amount">
+                            Cost
+                            <input name="expense_amount_input" type="number" class="expense_input">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closePop">Close</button>
+                  <button type="button" class="btn btn-primary" id="saveExpense">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+    <script>
+        // $(".addExpense").click(function() {
+        //     var shtml = '<div class="expense"><div class="expense-name"><input name="expense_name_input" type="text" class="expense_input"></div><div class="expense-amount"><input name="expense_amount_input" type="number" class="expense_input"></div></div>';
+        //     $(".expense-container").append(shtml);
+        // });
+        $("#saveExpense").click(function() {
+            var shtml = '<div class="expense"><div class="expense-name">' + $("[name='expense_name_input']").val() + '</div><div class="expense-amount">' + $("[name='expense_amount_input']").val() + '</div></div>';
+            $(".addExpense").before(shtml);
+            $("#closePop").click();
+        });
+    </script>
+</html>
